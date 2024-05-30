@@ -24,6 +24,7 @@ export class TodoFilterComponent implements OnInit {
   todoFilter: any = '0';
 
   changeFilter(value: any) {
+    // this.todoFilter = value;
     this.filter = filters[value];
     this.filterChange.emit(this.filter);
   }

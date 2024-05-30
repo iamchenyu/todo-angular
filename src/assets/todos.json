@@ -1,0 +1,5 @@
+[
+  { "text": "Walk Horton", "isFinished": false },
+  { "text": "Cook Dinner", "isFinished": false },
+  { "text": "Morning Yoga", "isFinished": true }
+]

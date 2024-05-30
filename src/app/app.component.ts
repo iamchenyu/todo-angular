@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TodoItem } from 'src/data/models/todoItem';
+import { EventService } from '../data/services/EventService';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,16 @@ import { TodoItem } from 'src/data/models/todoItem';
 })
 export class AppComponent {
   title = 'todo-app';
-  todoItems: Array<TodoItem> = [
-    new TodoItem('Walk Horton', false),
-    new TodoItem('Cook Dinner', false),
-    new TodoItem('Morning Yoga', true),
-  ];
+  todoItems: Array<TodoItem> = [];
   filter: any;
+
+  constructor(events: EventService) {
+    events.listen(
+      'removeTodo',
+      (todoId: string) =>
+        (this.todoItems = this.todoItems.filter((todo) => todo.name != todoId))
+    );
+  }
 
   // get visibleTodos(): Array<TodoItem> {
   //   // let filterValue = this.todoFilter;

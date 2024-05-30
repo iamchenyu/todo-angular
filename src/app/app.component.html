@@ -4,6 +4,8 @@
     <todo-filter [(filter)]="filter"></todo-filter>
   </div>
   <div class="mt-3">
-    <todo-list [todos]="todoItems.filter(filter)"></todo-list>
+    <div class="col-sm-4">
+      <todo-list [todos]="todoItems.filter(filter)"></todo-list>
+    </div>
   </div>
 </div>

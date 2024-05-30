@@ -1,4 +1,4 @@
-<li>
+<li class="d-flex justify-content-between">
   <div class="form-check">
     <input
       class="form-check-input"
@@ -13,5 +13,8 @@
       [ngClass]="todoState ? 'strikeout text-muted' : ''"
       >{{ todoText }}</label
     >
+  </div>
+  <div>
+    <button type="button" class="btn-close" (click)="removeTodo()"></button>
   </div>
 </li>

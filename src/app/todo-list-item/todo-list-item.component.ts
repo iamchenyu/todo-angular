@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TodoItem } from 'src/data/models/todoItem';
+import { EventService } from '../../data/services/EventService';
 
 @Component({
   selector: 'todo-list-item',
@@ -11,12 +11,16 @@ export class TodoListItemComponent implements OnInit {
   @Input() todoState!: boolean;
   @Input() todoId!: string;
   @Output() todoStateChange = new EventEmitter<boolean>();
-  constructor() {}
+  constructor(private events: EventService) {}
 
   ngOnInit(): void {}
 
   toggleTodoState() {
     this.todoState = !this.todoState;
     this.todoStateChange.emit(this.todoState);
+  }
+
+  removeTodo() {
+    this.events.emit('removeTodo', this.todoId);
   }
 }
