@@ -1,0 +1,12 @@
+<div *ngIf="todos.length === 0; else showItem">
+  No tasks for today. Have a relaxing day!
+</div>
+<ng-template #showItem
+  ><ul class="todos">
+    <todo-list-item
+      *ngFor="let todo of todos"
+      [todoText]="todo.text"
+      [(todoState)]="todo.isFinished"
+      [todoId]="todo.name"
+    ></todo-list-item></ul
+></ng-template>
